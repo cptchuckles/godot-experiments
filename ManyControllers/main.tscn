@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://ManyControllers/guy.gd" type="Script" id=2]
+
+[node name="main" type="Node2D"]
+
+[node name="guy" type="Sprite" parent="."]
+position = Vector2( 325, 309 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="guy2" type="Sprite" parent="."]
+position = Vector2( 482, 279 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+control_active = true

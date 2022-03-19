@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://2DCameraSnap/Player.gd" type="Script" id=1]
+[ext_resource path="res://2DCameraSnap/icon.png" type="Texture" id=2]
+[ext_resource path="res://2DCameraSnap/CameraFollowGrid.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31.5131, 31.3518 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource( 3 )
+SNAPFACTOR = 0.02
+TARGET_NODE_PATH = NodePath("../Player")
+
+[node name="ColorRect" type="ColorRect" parent="Node2D"]
+margin_right = 320.0
+margin_bottom = 240.0
+color = Color( 0.521569, 0.854902, 0.572549, 0.415686 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Node2D/ColorRect"]
+margin_left = 77.3625
+margin_top = 10.0908
+margin_right = 246.362
+margin_bottom = 24.0908
+text = "pretend this is the camera"
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 168.667, 119.319 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+SPEED = 280.0
+
+[node name="icon" type="Sprite" parent="Player"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource( 1 )

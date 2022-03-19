@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+light_mode = 1
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1 )
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 145, 133 )
+
+[node name="Line2D" type="Line2D" parent="."]
+material = SubResource( 1 )
+points = PoolVector2Array( 49, -22, 249, 48, 263, 214 )
+width = 20.0
+gradient = SubResource( 2 )
+joint_mode = 2
+end_cap_mode = 2
+antialiased = true

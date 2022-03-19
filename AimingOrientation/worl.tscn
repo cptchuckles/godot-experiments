@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://AimingOrientation/guy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://AimingOrientation/Puck.gd" type="Script" id=2]
+
+[sub_resource type="SpatialMaterial" id=6]
+params_cull_mode = 2
+
+[sub_resource type="CylinderMesh" id=1]
+material = SubResource( 6 )
+top_radius = 0.4
+bottom_radius = 0.704
+height = 0.411
+
+[sub_resource type="ProceduralSky" id=2]
+
+[sub_resource type="Environment" id=3]
+background_mode = 2
+background_sky = SubResource( 2 )
+tonemap_mode = 3
+tonemap_exposure = 0.91
+tonemap_white = 16.0
+ss_reflections_enabled = true
+glow_enabled = true
+glow_intensity = 0.05
+glow_strength = 0.87
+glow_bloom = 0.24
+
+[sub_resource type="PlaneMesh" id=4]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.305882, 0.223529, 0.223529, 1 )
+metallic = 1.0
+roughness = 0.33
+
+[node name="worl" type="Spatial"]
+
+[node name="Guy" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.423245, 0 )
+TARGET_NODE = NodePath("../Puck")
+TURN_FACTOR = 0.1
+
+[node name="Puck" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.49926, 0, 1.38804 )
+mesh = SubResource( 1 )
+material/0 = null
+script = ExtResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.67132, 0.741168, 0, -0.741168, 0.67132, 0, 7.09422, 7.40512 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Camera"]
+environment = SubResource( 3 )
+
+[node name="floor" type="MeshInstance" parent="."]
+transform = Transform( 11.7387, 0, 0, 0, 11.7387, 0, 0, 0, 11.7387, 0, -1.26247, 0 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="sun" type="DirectionalLight" parent="."]
+transform = Transform( 0.477925, 0.705058, -0.523909, 0, 0.596435, 0.802661, 0.878401, -0.383612, 0.285051, 0, 7.77053, 6.13532 )
+light_energy = 16.0
+shadow_enabled = true

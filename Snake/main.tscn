@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://_kenny_textures/Dark/texture_04.png" type="Texture" id=1]
+[ext_resource path="res://Snake/snake.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Snake/post_env.tres" type="Environment" id=3]
+[ext_resource path="res://Snake/main.gd" type="Script" id=4]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_world_triplanar = true
+albedo_texture = ExtResource( 1 )
+metallic = 0.96
+roughness = 0.3
+rim_enabled = true
+rim = 0.23
+rim_tint = 0.17
+clearcoat_enabled = true
+clearcoat = 1.0
+clearcoat_gloss = 1.0
+uv1_triplanar = true
+
+[node name="main" type="Spatial"]
+script = ExtResource( 4 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.558918, 0.829223, 0, -0.829223, 0.558918, 0, 13.7646, 6.46858 )
+
+[node name="floor" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.394115, -38.8527 )
+use_collision = true
+width = 134.081
+height = 0.759783
+depth = 107.519
+material = SubResource( 1 )
+
+[node name="snake" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00222903, 0 )
+MOVE_SPEED = 40.0
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.950716, 1.46877e-09, -0.310062, 0.237483, 0.642935, 0.728174, 0.19935, -0.765921, 0.611248, 0, 5.3867, 11.7494 )
+light_energy = 4.96
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 3 )

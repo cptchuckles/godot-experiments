@@ -1,0 +1,17 @@
+[
+	{
+		"id": 0,
+		"message": "Wello Horld!",
+		"name": "Rannator"
+	},
+	{
+		"id": 1,
+		"message": "What's my favourite color?",
+		"name": "Narrator",
+		"choices": [
+			"Orange",
+			"Green",
+			"Purple"
+			]
+	}
+]

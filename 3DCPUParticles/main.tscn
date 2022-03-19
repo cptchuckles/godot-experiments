@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 0.2, 0.2, 0.2 )
+
+[node name="main" type="Spatial"]
+
+[node name="CPUParticles" type="CPUParticles" parent="."]
+mesh = SubResource( 1 )
+direction = Vector3( 11.706, 0, 0 )
+spread = 0.0
+initial_velocity = 3.35

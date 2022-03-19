@@ -1,0 +1,4 @@
+.gdignore
+*.import
+.import/
+_*/

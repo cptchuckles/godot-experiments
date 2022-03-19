@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://NotificaionPredeleteTest/icon.png" type="Texture" id=1]
+[ext_resource path="res://NotificaionPredeleteTest/icon.gd" type="Script" id=2]
+[ext_resource path="res://NotificaionPredeleteTest/main.gd" type="Script" id=3]
+
+[node name="main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+ICON_OF_SIN = NodePath("icon")
+
+[node name="TreePresence" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 41.0
+margin_top = -97.0
+margin_right = 230.0
+margin_bottom = -45.0
+text = "Toggle Tree Presence"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Delet" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 41.0
+margin_top = -187.0
+margin_right = 230.0
+margin_bottom = -135.0
+text = "Delet"
+
+[node name="icon" type="Sprite" parent="."]
+position = Vector2( 496, 245 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[connection signal="pressed" from="TreePresence" to="." method="_on_TreePresence_pressed"]
+[connection signal="pressed" from="Delet" to="." method="_on_Delet_pressed"]

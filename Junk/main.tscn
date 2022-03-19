@@ -1,0 +1,89 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Junk/array_uniq.gd" type="Script" id=1]
+[ext_resource path="res://Junk/positionsayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Junk/processmedaddy.gd" type="Script" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://Junk/spinny_boi.gd" type="Script" id=5]
+[ext_resource path="res://Junk/bebbisprite.gd" type="Script" id=6]
+[ext_resource path="res://Junk/MenuButton.gd" type="Script" id=7]
+[ext_resource path="res://Junk/DaddiSprite.gd" type="Script" id=8]
+[ext_resource path="res://Junk/main.gd" type="Script" id=9]
+[ext_resource path="res://Junk/TypeCaster.gd" type="Script" id=10]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 41.0488
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 47, 37.5 )
+
+[node name="main" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="ArrayUniq" type="Node" parent="."]
+script = ExtResource( 1 )
+other_things = [ {
+} ]
+
+[node name="positionsayer" parent="." instance=ExtResource( 2 )]
+position = Vector2( 117, 122 )
+
+[node name="processmedaddy" type="Node2D" parent="."]
+position = Vector2( 389, 195 )
+script = ExtResource( 3 )
+
+[node name="spinny_boi" type="Sprite" parent="processmedaddy"]
+position = Vector2( 5, -5 )
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
+
+[node name="DaddiSprite" type="Sprite" parent="."]
+position = Vector2( 251.5, 393 )
+scale = Vector2( 2.35938, 2.28125 )
+texture = ExtResource( 4 )
+script = ExtResource( 8 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="DaddiSprite"]
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DaddiSprite/KinematicBody2D"]
+shape = SubResource( 1 )
+
+[node name="bebbisprite" type="Sprite" parent="DaddiSprite/KinematicBody2D"]
+rotation = 0.818783
+scale = Vector2( 0.483444, 0.513699 )
+texture = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="DaddiSprite"]
+position = Vector2( -53.6159, 1.31506 )
+texture = ExtResource( 4 )
+
+[node name="MenuButton" type="MenuButton" parent="."]
+margin_left = 500.0
+margin_top = 306.0
+margin_right = 704.0
+margin_bottom = 351.0
+action_mode = 1
+text = "click me motherfucker"
+flat = false
+items = [ "You:", null, 0, false, true, 0, 0, null, "", true, "are gay", null, 2, true, false, 1, 0, null, "", false, "are a faggot", null, 2, false, false, 2, 0, null, "", false, "enjoy penis", null, 1, true, true, 3, 0, null, "", false, "Life actions available:", null, 0, false, false, 4, 0, null, "", true, "die immediately", null, 0, false, false, 5, 0, null, "", false, "continue living", null, 0, false, true, 6, 0, null, "", false ]
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TypeCaster" type="Area2D" parent="."]
+position = Vector2( 659, 123 )
+script = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TypeCaster"]
+shape = SubResource( 2 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2( 658, -2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 2, 2 )
+shape = SubResource( 3 )

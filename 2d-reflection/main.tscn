@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://2d-reflection/reflector.tscn" type="PackedScene" id=1]
+[ext_resource path="res://2d-reflection/icon.png" type="Texture" id=2]
+[ext_resource path="res://2d-reflection/bullet.gd" type="Script" id=3]
+[ext_resource path="res://2d-reflection/potatobread.mp3" type="AudioStream" id=4]
+[ext_resource path="res://2d-reflection/Camera2D.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="CanvasItemMaterial" id=2]
+blend_mode = 1
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 23.5828, 22.3799 )
+
+[node name="main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( -266.023, -89.7969 )
+anchor_mode = 0
+current = true
+script = ExtResource( 5 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2( 702.475, 533.086 )
+scale = Vector2( 2.37738, 1.2669 )
+mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D"]
+material = SubResource( 2 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 444.512, 298.121 )
+
+[node name="bullet" type="KinematicBody2D" parent="."]
+position = Vector2( 730.768, 310.978 )
+script = ExtResource( 3 )
+TARGET_NODE = NodePath("../StaticBody2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet"]
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="bullet"]
+texture = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="bullet"]
+stream = ExtResource( 4 )

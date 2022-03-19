@@ -1,0 +1,23 @@
+[gd_resource type="Environment" load_steps=3 format=2]
+
+[ext_resource path="res://Snake/starfield.hdr" type="Texture" id=1]
+
+[sub_resource type="PanoramaSky" id=1]
+panorama = ExtResource( 1 )
+
+[resource]
+background_mode = 2
+background_sky = SubResource( 1 )
+background_energy = 8.75
+tonemap_mode = 3
+tonemap_exposure = 1.8
+tonemap_white = 16.0
+ss_reflections_enabled = true
+ss_reflections_max_steps = 512
+ss_reflections_depth_tolerance = 0.1
+dof_blur_far_distance = 20.41
+dof_blur_far_transition = 20.0
+glow_enabled = true
+glow_intensity = 0.22
+glow_strength = 0.74
+glow_blend_mode = 0

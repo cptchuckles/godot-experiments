@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://_kenny_textures/Green/texture_01.png" type="Texture" id=1]
+
+[sub_resource type="CapsuleMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_world_triplanar = true
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 0.08, 0.08, 0.08 )
+uv1_triplanar = true
+
+[sub_resource type="World" id=3]
+
+[node name="root" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.899245, -0.19247, 0.392828, 0, 0.898005, 0.439986, -0.437445, -0.395655, 0.807526, 1.69063, 2.63471, 4.49159 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 1024, 768 )
+own_world = true
+world = SubResource( 3 )
+transparent_bg = true
+
+[node name="Camera2" type="Camera" parent="Viewport"]
+transform = Transform( 0.899245, -0.19247, 0.392828, 0, 0.898005, 0.439986, -0.437445, -0.395655, 0.807526, 1.69063, 2.63471, 4.49159 )
+current = true
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Viewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.43117, 0 )
+shadow_enabled = true

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CubeMesh" id=1]
+
+[node name="thing" type="MeshInstance"]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 0.608925, 0, 0, 0, 0.608925, 0, 0, 0, 0.608925, 0.0732136, 1.02714, 0 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = null

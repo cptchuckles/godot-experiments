@@ -1,0 +1,159 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Animations/guy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Animations/clipped-guy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Animations/icon.png" type="Texture" id=3]
+[ext_resource path="res://Animations/YSort.gd" type="Script" id=4]
+[ext_resource path="res://Animations/zombo.png" type="Texture" id=5]
+[ext_resource path="res://Animations/zombo.gd" type="Script" id=6]
+
+[sub_resource type="ShaderMaterial" id=17]
+
+[sub_resource type="Animation" id=18]
+resource_name = "move"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 662, 164 ), Vector2( 658, 91 ), Vector2( 662, 164 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "print_things"
+}, {
+"args": [  ],
+"method": "print_things"
+} ]
+}
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 186, 390 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 186, 0, 186, 390 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 372, 0, 186, 390 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 558, 0, 186, 390 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 744, 0, 186, 390 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 930, 0, 186, 390 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 1116, 0, 186, 390 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 1302, 0, 186, 390 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 1488, 0, 186, 390 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 1674, 0, 186, 390 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 1860, 0, 186, 390 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 2046, 0, 186, 390 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 2232, 0, 186, 390 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 2418, 0, 186, 390 )
+
+[sub_resource type="SpriteFrames" id=19]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="main" type="Node2D"]
+
+[node name="Guy" parent="." instance=ExtResource( 1 )]
+position = Vector2( 130, 160 )
+
+[node name="Guy2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 415, 113 )
+
+[node name="YSort" type="YSort" parent="."]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="YSort"]
+material = SubResource( 17 )
+position = Vector2( 628, 129 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="YSort"]
+position = Vector2( 635, 112 )
+texture = ExtResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="YSort"]
+position = Vector2( 646, 139 )
+texture = ExtResource( 3 )
+
+[node name="Sprite4" type="Sprite" parent="YSort"]
+position = Vector2( 662, 164 )
+texture = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/Sprite4"]
+autoplay = "move"
+anims/move = SubResource( 18 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="YSort"]
+position = Vector2( 512.918, 334.593 )
+frames = SubResource( 19 )
+script = ExtResource( 6 )

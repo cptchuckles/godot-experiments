@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://_kenny_textures/Purple/texture_01.png" type="Texture" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_world_triplanar = true
+albedo_texture = ExtResource( 1 )
+uv1_triplanar = true
+
+[node name="worl" type="Spatial"]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( -0.493653, -0.527872, 0.691128, 0, 0.794711, 0.606988, -0.869659, 0.299642, -0.392312, 2.63196, 3.42755, -0.443725 )
+shadow_enabled = true
+
+[node name="CSGBox" type="CSGBox" parent="."]
+use_in_baked_light = true
+width = 10.8954
+height = 0.515056
+depth = 8.22751
+material = SubResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30721, 1.27857, 0.984649 )
+use_in_baked_light = true
+width = 2.27163
+height = 2.08524
+depth = 2.58517
+material = SubResource( 1 )
+
+[node name="BakedLightmap" type="BakedLightmap" parent="."]

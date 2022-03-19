@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Junk/set_group_test.gd" type="Script" id=1]
+[ext_resource path="res://Junk/character.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[node name="map" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Icon" type="Sprite" parent="."]
+position = Vector2( 112, 208 )
+texture = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="Icon2" type="Sprite" parent="."]
+position = Vector2( 303, 230 )
+texture = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="Icon3" type="Sprite" parent="."]
+position = Vector2( 513, 175 )
+texture = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="Counter" type="Label" parent="."]
+margin_left = 38.0
+margin_top = 24.0
+margin_right = 78.0
+margin_bottom = 38.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

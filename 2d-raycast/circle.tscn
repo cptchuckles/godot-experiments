@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://2d-raycast/circle.png" type="Texture" id=1]
+[ext_resource path="res://2d-raycast/icon.png" type="Texture" id=2]
+[ext_resource path="res://2d-raycast/circle.gd" type="Script" id=3]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="circle" type="Sprite" parent="."]
+position = Vector2( 510, 289 )
+scale = Vector2( 0.716667, 0.703333 )
+script = ExtResource( 3 )
+SENSITIVITY = 900.0
+
+[node name="icon" type="Sprite" parent="circle"]
+position = Vector2( 290, 0 )
+texture = ExtResource( 2 )
+
+[node name="circle2" type="Sprite" parent="."]
+position = Vector2( 510, 289 )
+scale = Vector2( 0.716667, 0.703333 )
+texture = ExtResource( 1 )
