@@ -1,5 +1,4 @@
 extends Spatial
-#fucki
 
 
 export(float) var ECCENTRICITY := 1.0
